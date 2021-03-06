@@ -60,3 +60,5 @@ while True:
 
 #pwm.stop()
 
+# SOURCE: https://www.instructables.com/Servo-Motor-Control-With-Raspberry-Pi/
+
