@@ -11,11 +11,18 @@
 # IMPORT:
 import time
 import board
-import busio                # chage to GPIO
-# import package           # if component has a package, put package name here (things like stepper won't have a package)
+import GPIO                # chage to GPIO
 
 import rospy
 from geometry_msgs.msg import Point, PointStamped, Pose, Quaternion, Twist, Vector3     # Specific to ROS nodes. Changes data type.
+
+def SetAngle(angle):
+    duty = angle / 18 + 2
+    GPIO.output(03, True)
+    pwn.ChangeDutyCycle(duty)
+    sleep(1)
+    GPIO.output(03,False)
+    pwm.ChangeDutyCycle(0)
 
 def talker():
 
