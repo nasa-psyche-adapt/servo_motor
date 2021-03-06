@@ -1,0 +1,62 @@
+#import busio
+#import digitalio
+import board
+import time
+import pwmio
+
+#from adafruit_motor import servo
+
+
+#from time import sleep
+# GPIO.setmode(GPIO.BOARD)
+#import RPi.GPIO as GPIO
+
+testpin = 33
+
+#servo = PWM.Servo()
+#servo.set_servo(26, 1200)
+
+servo = pwmio.PWMOut(board.D26, frequency=50)
+
+def servo_duty_cycle(pulse_ms, frequency=50):
+	period_ms = 1.0 / frequency *1000.0
+	duty_cycle = int(pulse_ms / (period_ms / 65536.0))
+	return duty_cycle
+	
+while True:
+	servo.duty_cycle = servo_duty_cycle(1.0)
+	time.sleep(1.0)
+	servo.duty_cycle = servo_duty_cycle(2.0)
+	time.sleep(1.0)
+
+#GPIO.setup(testpin, GPIO.OUT)
+
+
+#pwm=GPIO.PWM(testpin, 50)
+
+#pwm.start(2.5)
+
+# CODE FOR LED
+#pin = digitalio.DigitalInOut(board.D26)			#gpio/bcm number (not board number)
+#pin.direction = digitalio.Direction.OUTPUT
+#pin.value = True
+#time.sleep(1)
+#pin.value= False
+#time.sleep(1)
+#print("test")
+
+
+#def SetAngle(angle):
+#	duty = angle / 18 +2
+#	GPIO.output(pin, pin.value)
+#   pin = digitalio.DigitalInOut(board.D26)
+#	pwm.ChangeDutyCycle(duty)
+#	sleep(1)
+#	GPIO.output(testpin, False)
+#	pwm.ChangeDutyCycle(0)
+#	print("test")
+	
+#SetAngle(90)
+
+#pwm.stop()
+
