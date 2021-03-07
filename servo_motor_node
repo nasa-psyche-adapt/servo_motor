@@ -10,7 +10,7 @@
 # IMPORT:
 import time
 import board
-import GPIO                # chage to GPIO
+import GPIO
 
 import rospy
 from digital_servo import Start, Stop, Step
